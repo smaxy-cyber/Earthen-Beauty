@@ -59,7 +59,8 @@ function handleCreateRazorpayOrder(array $input) {
             CURLOPT_POSTFIELDS     => $payload,
             CURLOPT_USERPWD        => RAZORPAY_KEY_ID . ':' . RAZORPAY_KEY_SECRET,
             CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
-            CURLOPT_TIMEOUT        => 10
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_TIMEOUT        => 12
         ]);
 
         $response = curl_exec($ch);

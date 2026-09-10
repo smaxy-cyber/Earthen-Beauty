@@ -8,6 +8,7 @@
 .env.*.local
 *.env
 !.env.example
+data/shiprocket_token.json
 
 # 2. Local Database Files & SQLite Stores (Contains local customer & order data)
 # Note: Database structure and initial seed data are preserved in backend/schema.sql

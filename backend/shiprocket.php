@@ -33,7 +33,8 @@ function getShiprocketToken(): ?string {
         CURLOPT_POST           => true,
         CURLOPT_POSTFIELDS     => $payload,
         CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
-        CURLOPT_TIMEOUT        => 10
+        CURLOPT_SSL_VERIFYPEER => false,
+        CURLOPT_TIMEOUT        => 12
     ]);
 
     $response = curl_exec($ch);
@@ -114,7 +115,8 @@ function dispatchShiprocketOrder(array $order): array {
                 'Content-Type: application/json',
                 'Authorization: Bearer ' . $token
             ],
-            CURLOPT_TIMEOUT        => 12
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_TIMEOUT        => 15
         ]);
 
         $response = curl_exec($ch);
