@@ -12,6 +12,25 @@ error_reporting(E_ALL);
 // Timezone
 date_default_timezone_set('Asia/Kolkata');
 
+// Load .env if present in root
+$envFile = __DIR__ . '/../.env';
+if (file_exists($envFile)) {
+    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if ($line === '' || strpos($line, '#') === 0) continue;
+        if (strpos($line, '=') !== false) {
+            list($envKey, $envVal) = explode('=', $line, 2);
+            $envKey = trim($envKey);
+            $envVal = trim($envVal);
+            if (!getenv($envKey)) {
+                putenv("$envKey=$envVal");
+                $_ENV[$envKey] = $envVal;
+            }
+        }
+    }
+}
+
 // ==========================================
 // DATABASE CREDENTIALS (MySQL / MariaDB)
 // ==========================================
@@ -39,6 +58,7 @@ define('RAZORPAY_KEY_SECRET', getenv('RAZORPAY_KEY_SECRET') ?: 'eb_secret_demo99
 // Credentials from shiprocket.in/dashboard
 define('SHIPROCKET_EMAIL', getenv('SHIPROCKET_EMAIL') ?: '');
 define('SHIPROCKET_PASSWORD', getenv('SHIPROCKET_PASSWORD') ?: '');
+define('SHIPROCKET_PICKUP_LOCATION', getenv('SHIPROCKET_PICKUP_LOCATION') ?: 'Primary');
 
 // ==========================================
 // SECURITY & AUTHENTICATION

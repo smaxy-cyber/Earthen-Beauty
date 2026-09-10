@@ -86,7 +86,7 @@ function dispatchShiprocketOrder(array $order): array {
         $payload = json_encode([
             'order_id'              => $order['order_number'],
             'order_date'            => date('Y-m-d H:i'),
-            'pickup_location'       => 'Earthen Beauty Studio',
+            'pickup_location'       => defined('SHIPROCKET_PICKUP_LOCATION') && SHIPROCKET_PICKUP_LOCATION ? SHIPROCKET_PICKUP_LOCATION : 'Primary',
             'billing_customer_name' => $order['customer_name'] ?: 'Customer',
             'billing_last_name'     => '',
             'billing_address'       => $shippingAddress['street'] ?? 'Local Delivery',
