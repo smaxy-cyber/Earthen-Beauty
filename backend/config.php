@@ -58,7 +58,7 @@ define('RAZORPAY_KEY_SECRET', getenv('RAZORPAY_KEY_SECRET') ?: 'eb_secret_demo99
 // Credentials from shiprocket.in/dashboard
 define('SHIPROCKET_EMAIL', getenv('SHIPROCKET_EMAIL') ?: '');
 define('SHIPROCKET_PASSWORD', getenv('SHIPROCKET_PASSWORD') ?: '');
-define('SHIPROCKET_PICKUP_LOCATION', getenv('SHIPROCKET_PICKUP_LOCATION') ?: 'Primary');
+define('SHIPROCKET_PICKUP_LOCATION', getenv('SHIPROCKET_PICKUP_LOCATION') ?: 'EARTHEN ');
 
 // ==========================================
 // SECURITY & AUTHENTICATION
