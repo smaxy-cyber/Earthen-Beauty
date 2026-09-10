@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Earthen Beauty by Nupur - Handcrafted candles, diffusers, mists and more. Made with love, lit with warmth.">
-  <title>Earthen Beauty by Nupur | Handcrafted Candles</title>
+  <meta name="description" content="Refund, Cancellation & Shipping Policy for Earthen Beauty by Nupur - Handcrafted candles, unboxing verification, and transit policies.">
+  <title>Refund & Cancellation Policy | Earthen Beauty by Nupur</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
-  <!-- Cart Overlay -->
+  <!-- Cart Overlay & Panel -->
   <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
-
-  <!-- Cart Side Panel -->
   <div class="cart-panel" id="cart-panel">
     <div class="cart-header">
       <h3>🛒 Your Cart</h3>
@@ -23,7 +21,6 @@
       <div class="empty-cart-msg" id="empty-cart-msg">
         <div class="empty-icon">🕯️</div>
         <p>Your cart is empty</p>
-        <p style="font-size: 0.85rem; color: #aaa;">Add some warmth to your cart!</p>
       </div>
       <div id="cart-items"></div>
     </div>
@@ -52,22 +49,8 @@
     </div>
   </div>
 
-  <!-- Search Modal Overlay -->
-  <div class="search-overlay" id="search-overlay" onclick="closeSearchModal(event)">
-    <div class="search-modal-content" onclick="event.stopPropagation()">
-      <div class="search-modal-header">
-        <span style="font-size: 1.2rem; color: var(--terracotta);">🔍</span>
-        <input type="text" id="global-search-input" placeholder="Type to search candles, diffusers, mists..." oninput="handleGlobalSearch(this.value)">
-        <button class="search-modal-close" onclick="closeSearchModal()" title="Close">✕</button>
-      </div>
-      <div class="search-modal-results" id="search-modal-results">
-        <!-- Live search results rendered by JS -->
-      </div>
-    </div>
-  </div>
-
   <!-- Header -->
-  <header class="header" id="header">
+  <header class="header scrolled" id="header">
     <div class="top-announcement-bar">
       <span>🌿 100% Pure Soy Wax & Botanical Fragrances</span>
       <span class="bar-dot">•</span>
@@ -76,17 +59,14 @@
       <span>🕯️ Hand-Poured in Small Batches by Nupur</span>
     </div>
     <div class="container">
-
-      <!-- Brand Logo (Left) -->
       <a href="index.html" class="logo">
         <h1>Earthen Beauty</h1>
         <span>by Nupur</span>
       </a>
 
-      <!-- Floating Pill Navbar (Reference Layout - Clean Text Links) -->
       <nav class="nav-center">
         <ul class="nav-links nav-pill-capsule" id="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
           <li><a href="customizable.html">Customize</a></li>
           <li><a href="about.html">About</a></li>
@@ -94,7 +74,6 @@
         </ul>
       </nav>
 
-      <!-- Right Header Actions (Cart(0), Wishlist, Account) matching reference -->
       <div class="header-actions">
         <button class="cart-btn" onclick="toggleCart()" title="View Cart">
           <svg class="cart-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -111,80 +90,139 @@
           <span></span>
         </button>
       </div>
-
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-bg" style="background-image: url('images/hero/hero-bg.png');"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <h2>Handcrafted with Love</h2>
-      <h1>Earthen Beauty</h1>
-      <p>Discover our collection of handmade candles, diffusers, and home fragrances — each piece crafted with care by Nupur.</p>
-
-      <!-- Hero Search Bar (Reference Neumorphic/Frosted Pill Capsule) -->
-      <form class="hero-search-wrap" onsubmit="handleHeroSearch(event)">
-        <input type="text" id="hero-search-input" placeholder="SEARCH CANDLES, DIFFUSERS, SCENTS..." autocomplete="off" spellcheck="false">
-        <button type="submit" class="hero-search-submit-btn" aria-label="Search" title="Search">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-      </form>
-
-      <a href="shop.html" class="hero-btn">Explore Collection</a>
-    </div>
-    <div class="scroll-indicator">
-      <span></span>
+  <!-- Policy Hero -->
+  <section class="policy-hero">
+    <span class="section-eyebrow">📦 Transparency & Fairness</span>
+    <h1>Refund & Cancellation Policy</h1>
+    <p>Essential guidelines covering order commitments, transit protection, unboxing verification, and refund procedures.</p>
+    <div class="policy-badge-wrap">
+      <span class="policy-badge">Effective: September 2026</span>
+      <span class="policy-badge green">Artisanal Goods Protocol</span>
     </div>
   </section>
 
-  <!-- Categories Section -->
-  <section class="categories-section" id="categories">
-    <div class="container">
-      <div class="section-title reveal">
-        <span class="section-eyebrow">🌿 Artisanal Botanical Collections</span>
-        <h2>Our Collections</h2>
-        <p>Explore our handcrafted categories made with pure soy wax & organic scents</p>
-      </div>
-      <div class="categories-grid" id="categories-grid">
-        <!-- Categories will be loaded by JS -->
-      </div>
-    </div>
-  </section>
+  <!-- Policy Content -->
+  <section class="policy-section">
+    <div class="policy-container">
+      <div class="policy-card reveal">
 
-  <!-- Featured Products -->
-  <section class="featured-section" id="featured">
-    <div class="container">
-      <div class="section-title reveal">
-        <span class="section-eyebrow">🕯️ Curated Studio Highlights</span>
-        <h2>Featured Products</h2>
-        <p>Our most loved creations, lit with warmth and artisan care</p>
-      </div>
-      <div class="products-grid" id="featured-products">
-        <!-- Products will be loaded by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- About Teaser (Pure Minimalist Story & Read Our Story Button, No Image) -->
-  <section class="about-teaser">
-    <div class="container">
-      <div class="about-teaser-single reveal">
-        <span class="section-eyebrow">✨ The Studio Philosophy</span>
-        <h3 class="about-script-subtitle">Our Story</h3>
-        <h2>Handcrafted with Love, Pure by Nature</h2>
-        <div class="about-teaser-text-wrap">
-          <p>Earthen Beauty began with a heartfelt belief: that everyday spaces deserve to be sacred sanctuaries of warmth, calm, and pure botanical fragrance. We hand-pour every candle in mindful micro-batches using 100% natural, biodegradable soy wax, lead-free cotton wicks, and therapeutic-grade essential oils — completely free from toxic paraffin, phthalates, parabens, and chemical soot.</p>
-          <p>Every piece is shaped by hand with personal care, celebrating earthen authenticity and sustainable living.</p>
+        <div class="policy-intro-box">
+          At <strong>Earthen Beauty by Nupur</strong>, every single candle, wax sachet, and decorative vessel is an artisan-crafted product, hand-poured in micro-batches with meticulous care and dedication. Because our creations are delicate, handcrafted, and fragile goods, we uphold clear, transparent, and firm policies regarding cancellations, returns, and damages. Please review these policies carefully prior to making a purchase.
         </div>
-        <div class="about-teaser-actions">
-          <a href="about.html" class="about-btn">Read Our Story <span>➔</span></a>
+
+        <!-- 1. Strict No Cancellation Policy -->
+        <div class="policy-block">
+          <h2><span class="policy-num">1</span> Strict No-Cancellation Policy After Payment</h2>
+          <p>Once your order has been successfully placed and payment is captured through our website, <strong>cancellations are strictly not permitted</strong> under any circumstances.</p>
+          <ul>
+            <li>Immediately upon order confirmation, our studio team allocates specific raw materials, organic wicks, custom fragrance formulations, and handcrafted vessels for your batch.</li>
+            <li>Packaging and delicate shock-absorbent cushioning begin right away to ensure timely courier handoff. Therefore, no cancellation requests will be accepted once payment is processed.</li>
+          </ul>
+          <div class="policy-callout warning">
+            <strong>Order Commitment:</strong>
+            <p>Please review your shopping cart, fragrance selections, and delivery address carefully before completing payment. All confirmed payments are final.</p>
+          </div>
         </div>
+
+        <!-- 2. Strict No Returns Policy -->
+        <div class="policy-block">
+          <h2><span class="policy-num">2</span> Strict No-Returns / No-Exchanges Policy</h2>
+          <p>Due to the personal, aromatic, and delicate nature of artisanal candles, wax melts, and home fragrances, <strong>we do not accept standard returns or exchanges</strong>.</p>
+          <ul>
+            <li>We cannot accept returns based on personal fragrance preference, scent subjectivity, or accidental selection of size/color.</li>
+            <li>For hygiene, fragrance freshness, and product safety reasons, items once dispatched and received cannot be returned to our studio stock.</li>
+          </ul>
+        </div>
+
+        <!-- 3. Damaged In Transit (The Sole Eligibility Condition) -->
+        <div class="policy-block">
+          <h2><span class="policy-num">3</span> Transit Damage Policy (Sole Eligibility Condition)</h2>
+          <p>We pack every piece with multiple layers of shock-absorbent bubble wraps, corrugated cushions, and fragile security seals. However, in the rare event that a product is severely broken or damaged during transit before reaching your doorstep, a partial refund or resolution will be considered <strong>strictly and exclusively if all conditions in Section 4 are satisfied</strong>.</p>
+        </div>
+
+        <!-- 4. Mandatory 360-Degree Unboxing Video Verification -->
+        <div class="policy-block">
+          <h2><span class="policy-num">4</span> Mandatory 360° Unboxing Video Requirement (Strict Criteria)</h2>
+          <p>To ensure authenticity and prevent courier disputes, a refund or claim is strictly contingent on providing an uncut, unedited, high-definition 360-degree unboxing video that satisfies <strong>every single one of the following criteria</strong>:</p>
+          
+          <div class="policy-callout green">
+            <strong>Mandatory Video Checklist (Must Meet ALL Points):</strong>
+            <ul>
+              <li><strong>Prior to Opening:</strong> The recording must start <strong>BEFORE</strong> the package is cut, peeled, opened, or tampered with in any manner.</li>
+              <li><strong>Full 360° View of Sealed Box:</strong> The camera must clearly show all 6 outer sides (top, bottom, and all four sides) of the sealed courier box, establishing beyond doubt that all factory tape and courier seals were completely intact prior to recording.</li>
+              <li><strong>Clear Invoice & Shipping Label:</strong> The printed courier shipping label, AWB number, and the physical invoice/bill must be shown clearly and legibly to the camera.</li>
+              <li><strong>Continuous, Uncut Footage:</strong> The entire unboxing process—from cutting the outer tape to removing bubble wrapping and revealing the damaged item—must be captured in <strong>one single, continuous shot</strong> without any pauses, cuts, fast-forwarding, or edits.</li>
+              <li><strong>Clear Damage Display:</strong> The damaged, cracked, or broken piece must be held up clearly to the camera during the continuous unboxing shot.</li>
+            </ul>
+          </div>
+
+          <div class="policy-callout warning">
+            <strong>Strict Non-Compliance Clause:</strong>
+            <p><strong>If ANY of the above requirements are not matched, missing, or compromised—such as starting the video after the package was already opened, failing to show the 360° sealed box view, submitting an edited video, or having an unreadable bill—the claim is strictly NOT APPLICABLE towards a refund or replacement. No exceptions will be entertained.</strong></p>
+          </div>
+        </div>
+
+        <!-- 5. Refund Evaluation & Non-100% Policy -->
+        <div class="policy-block">
+          <h2><span class="policy-num">5</span> Refund Evaluation & Non-100% Policy</h2>
+          <p>If a damage claim is verified and approved under our strict video requirements, the following refund calculation terms apply:</p>
+          <ul>
+            <li><strong>Refunds are NEVER 100%:</strong> Because every handcrafted item involves extensive manual labor, individual molding, custom-blended botanicals, and non-refundable carrier charges, refunds are never issued for the full 100% invoice total.</li>
+            <li><strong>Evaluation Criteria:</strong> The refund amount depends strictly upon the product category, size, quantity damaged, and total purchase value.</li>
+            <li><strong>Exclusions:</strong> The calculated refund amount <strong>strictly excludes all incurred production costs, raw material expenses, packaging labor, protective casing, and courier logistics fees</strong> already expended.</li>
+            <li><strong>Official Confirmation via Email:</strong> The approximate calculated refund sum will be thoroughly evaluated by our studio team and officially communicated and confirmed with the customer via email before disbursement.</li>
+          </ul>
+        </div>
+
+        <!-- 6. Claim Reporting Window -->
+        <div class="policy-block">
+          <h2><span class="policy-num">6</span> Claim Submission Window</h2>
+          <p>Any damage claim, along with the mandatory 360° unboxing video and order number, must be reported to our studio within <strong>24 to 48 hours</strong> of courier delivery status marked by Shiprocket:</p>
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:earthenbeauty@gmail.com" style="color: var(--terracotta); text-decoration: underline;">earthenbeauty@gmail.com</a></li>
+            <li><strong>WhatsApp Helpline:</strong> +91 82968 91802</li>
+            <li>Claims submitted after 48 hours of delivery cannot be investigated or accepted under any circumstances.</li>
+          </ul>
+        </div>
+
+        <!-- 7. Refund Disbursement via Razorpay -->
+        <div class="policy-block">
+          <h2><span class="policy-num">7</span> Refund Processing & Disbursement (Razorpay)</h2>
+          <p>Once a partial refund is formally approved and confirmed via email:</p>
+          <ul>
+            <li>The refund will be processed directly through <strong>Razorpay</strong> back to the customer's original payment method (Credit Card, Debit Card, UPI, or Netbanking).</li>
+            <li>Depending on your issuing bank or UPI network, the credited amount typically reflects in your bank account within <strong>5 to 7 business days</strong>.</li>
+            <li>Cash refunds or transfers to alternate third-party accounts are not permitted under banking security guidelines.</li>
+          </ul>
+        </div>
+
+        <!-- 8. Shipping & Delivery Guidelines -->
+        <div class="policy-block">
+          <h2><span class="policy-num">8</span> Shipping & Delivery Timelines (Shiprocket)</h2>
+          <p>We partner with leading Indian logistics aggregators (primarily <strong>Shiprocket</strong>) to ensure reliable transit across India:</p>
+          <ul>
+            <li><strong>Handcrafted Dispatch Time:</strong> Orders are hand-poured, cured, and packed within <strong>1 to 3 business days</strong>.</li>
+            <li><strong>Transit Duration:</strong> Standard delivery takes approximately <strong>3 to 7 business days</strong> depending on your delivery location and pincode accessibility.</li>
+            <li><strong>Tracking:</strong> An automated SMS and email containing your live Shiprocket tracking link (AWB number) is dispatched immediately upon courier pickup.</li>
+            <li><strong>Failed Delivery / Incorrect Address:</strong> Customers must ensure accurate contact numbers and delivery addresses. If a package is returned to origin (RTO) due to customer unavailability or incorrect address, re-shipping charges must be borne by the customer.</li>
+          </ul>
+        </div>
+
+        <!-- Support Contact Box -->
+        <div class="policy-contact-box">
+          <div class="policy-contact-info">
+            <h4>Need to report transit damage or ask a question?</h4>
+            <p>Our studio is ready to guide you. Make sure you have your 360° unboxing video and bill ready.</p>
+          </div>
+          <div class="policy-contact-actions">
+            <a href="mailto:earthenbeauty@gmail.com" class="policy-contact-btn primary">Email Video & Bill</a>
+            <a href="https://wa.me/918296891802" target="_blank" class="policy-contact-btn secondary">WhatsApp Support</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -243,7 +281,6 @@
       <div class="footer-divider"></div>
 
       <div class="footer-grid">
-
         <div class="footer-brand">
           <div class="logo">
             <h1>Earthen Beauty</h1>
@@ -289,7 +326,6 @@
             </a>
           </div>
         </div>
-
       </div>
 
       <div class="footer-bottom">
@@ -310,99 +346,8 @@
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
   <script src="js/motion-effects.js"></script>
-
   <script>
-    // Load categories on home page
-    function loadCategories() {
-      var grid = document.getElementById("categories-grid");
-      if (!grid) return;
-
-      categories.forEach(function(cat) {
-        var card = document.createElement("a");
-        if (cat.id === "bulk-orders") {
-          card.href = "customizable.html#bulk-orders";
-        } else if (cat.id === "customizable") {
-          card.href = "customizable.html";
-        } else {
-          card.href = "shop.html?cat=" + cat.id;
-        }
-        card.className = "category-card";
-
-        var subtitle = cat.id === "bulk-orders" ? "Weddings & Events" : (cat.subcategories.length > 0 ? cat.subcategories.length + ' types' : 'View collection');
-
-        card.innerHTML =
-          '<div class="category-card-bg" style="background-image: url(\'' + cat.image + '\');"></div>' +
-          '<div class="category-card-overlay">' +
-            '<h3>' + cat.name + '</h3>' +
-            '<p>' + subtitle + '</p>' +
-          '</div>';
-
-        grid.appendChild(card);
-      });
-
-      if (window.animateProductGrid) {
-        window.animateProductGrid(grid);
-      }
-    }
-
-    // Load featured products (curated 1-2 from each category)
-    function loadFeatured() {
-      var grid = document.getElementById("featured-products");
-      if (!grid) return;
-      grid.innerHTML = "";
-
-      var featuredIds = [6, 14, 21, 46, 52, 54, 57, 63, 67, 72, 75]; // Handcrafted selection across all categories
-      var featured = products.filter(function(p) { return featuredIds.indexOf(p.id) !== -1; });
-      if (featured.length === 0) {
-        featured = products.slice(0, 8);
-      }
-
-      featured.forEach(function(product) {
-        var card = document.createElement("div");
-        card.className = "product-card";
-        card.style.cursor = "pointer";
-        card.onclick = function(e) {
-          if (e.target.classList.contains("add-to-cart-btn")) return;
-          window.location.href = "product.html?id=" + product.id;
-        };
-
-        // Find category name
-        var catObj = categories.find(function(c) { return c.id === product.category; });
-        var catName = catObj ? catObj.name : product.category;
-
-        card.innerHTML =
-          '<div class="product-image">' +
-            '<img src="' + product.image + '" alt="' + product.name + '">' +
-            '<span class="product-tag">' + catName + '</span>' +
-          '</div>' +
-          '<div class="product-info">' +
-            '<h3>' + product.name + '</h3>' +
-            '<p class="product-category">' + product.description + '</p>' +
-            '<div class="product-bottom">' +
-              '<span class="product-price">₹' + product.price + '</span>' +
-              '<button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(' + product.id + ')">Add to Cart</button>' +
-            '</div>' +
-          '</div>';
-
-        grid.appendChild(card);
-      });
-
-      if (window.animateProductGrid) {
-        window.animateProductGrid(grid);
-      }
-    }
-
-    // Initialize home page
-    document.addEventListener("DOMContentLoaded", function() {
-      loadCategories();
-      loadFeatured();
-    });
-
-    // Automatically re-render if live backend products sync or change
-    window.addEventListener("earthen:products-updated", function() {
-      loadFeatured();
-    });
+    document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>

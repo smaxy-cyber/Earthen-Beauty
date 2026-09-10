@@ -245,6 +245,17 @@
     gap: 30px;
   }
 
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+    gap: 8px 10px;
+  }
+
   /* Cart panel */
   .cart-panel {
     width: 100%;
@@ -255,8 +266,13 @@
   .shop-hero h1,
   .about-hero h1,
   .contact-hero h1,
-  .custom-hero h1 {
+  .custom-hero h1,
+  .policy-hero h1 {
     font-size: 2rem;
+  }
+
+  .policy-card {
+    padding: 28px 20px;
   }
 
   /* Custom page */

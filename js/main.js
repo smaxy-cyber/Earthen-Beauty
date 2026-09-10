@@ -564,6 +564,9 @@ function injectCustomerModals() {
               '<label>Pincode</label>' +
               '<input type="text" id="addr-pincode" required pattern="[0-9]{6}" placeholder="6-digit postal pincode">' +
             '</div>' +
+            '<p class="cart-compliance-consent" style="margin: 12px 0 10px;">' +
+              'By proceeding, you agree to our <a href="terms.html" target="_blank">Terms &amp; Conditions</a> and <a href="refund-policy.html" target="_blank">Refund Policy</a>.' +
+            '</p>' +
             '<button type="submit" class="auth-submit-btn">' +
               'Pay via Razorpay (UPI / Card / NetBanking)' +
             '</button>' +

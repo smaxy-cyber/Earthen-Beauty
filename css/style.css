@@ -1463,11 +1463,44 @@ ul {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(250, 246, 238, 0.1);
+  border-top: 1px solid rgba(250, 246, 238, 0.12);
   padding-top: 24px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
   font-size: 0.85rem;
-  color: rgba(250, 246, 238, 0.5);
+  color: rgba(250, 246, 238, 0.65);
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: rgba(250, 246, 238, 0.65);
+}
+
+.footer-legal-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+  color: rgba(250, 246, 238, 0.72);
+  text-decoration: none;
+  font-size: 0.84rem;
+  transition: color 0.25s ease;
+}
+
+.footer-legal-links a:hover {
+  color: var(--honey-yellow);
+  text-decoration: underline;
+}
+
+.footer-legal-links .legal-dot {
+  color: rgba(250, 246, 238, 0.35);
+  font-size: 0.75rem;
 }
 
 /* ===================================
@@ -3995,5 +4028,260 @@ ul {
   color: #b85c38 !important;
 }
 
+/* ===================================
+   LEGAL / POLICY PAGES (Razorpay Compliance)
+=================================== */
+.policy-hero {
+  padding: 135px 20px 48px;
+  background: linear-gradient(180deg, #faf6ee 0%, #f4ede0 65%, #faf6ee 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: center;
+}
 
+.policy-hero h1 {
+  color: var(--charcoal);
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+}
 
+.policy-hero p {
+  color: var(--text-light);
+  font-size: 1.02rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.policy-hero .policy-badge-wrap {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.policy-hero .policy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(184, 92, 56, 0.08);
+  border: 1px solid rgba(184, 92, 56, 0.22);
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--terracotta);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.policy-hero .policy-badge.green {
+  background: rgba(45, 90, 67, 0.08);
+  border-color: rgba(45, 90, 67, 0.22);
+  color: var(--forest-green);
+}
+
+.policy-section {
+  padding: 50px 20px 80px;
+  background: var(--canvas-bg);
+}
+
+.policy-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.policy-card {
+  background: #ffffff;
+  border: 1px solid rgba(184, 92, 56, 0.14);
+  border-radius: 18px;
+  padding: 44px 50px;
+  box-shadow: 0 10px 30px rgba(45, 35, 30, 0.04);
+}
+
+.policy-intro-box {
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid rgba(45, 35, 30, 0.08);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #3b3530;
+}
+
+.policy-block {
+  margin-bottom: 34px;
+}
+
+.policy-block h2 {
+  font-family: var(--font-heading);
+  color: var(--charcoal);
+  font-size: 1.32rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.policy-block h2 .policy-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--forest-green);
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.policy-block p {
+  color: #4a453e;
+  line-height: 1.78;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.policy-block ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 12px 0 16px;
+}
+
+.policy-block ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  color: #4a453e;
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.policy-block ul li::before {
+  content: "•";
+  position: absolute;
+  left: 6px;
+  color: var(--terracotta);
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.policy-callout {
+  background: rgba(184, 92, 56, 0.06);
+  border-left: 4px solid var(--terracotta);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+
+.policy-callout.warning {
+  background: rgba(197, 60, 40, 0.07);
+  border-left-color: #c53c28;
+}
+
+.policy-callout.green {
+  background: rgba(45, 90, 67, 0.07);
+  border-left-color: var(--forest-green);
+}
+
+.policy-callout strong {
+  color: var(--charcoal);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.policy-callout p {
+  margin-bottom: 0;
+  color: var(--charcoal);
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+.policy-contact-box {
+  margin-top: 36px;
+  padding: 22px 26px;
+  background: linear-gradient(135deg, rgba(45, 90, 67, 0.05) 0%, rgba(229, 184, 105, 0.1) 100%);
+  border: 1px solid rgba(45, 90, 67, 0.18);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.policy-contact-info h4 {
+  font-family: var(--font-heading);
+  color: var(--charcoal);
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+}
+
+.policy-contact-info p {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: #554e47;
+}
+
+.policy-contact-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.policy-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.policy-contact-btn.primary {
+  background: var(--terracotta);
+  color: #ffffff;
+}
+
+.policy-contact-btn.primary:hover {
+  background: #a34e2c;
+  transform: translateY(-2px);
+}
+
+.policy-contact-btn.secondary {
+  background: rgba(45, 90, 67, 0.12);
+  color: var(--forest-green);
+  border: 1px solid rgba(45, 90, 67, 0.25);
+}
+
+.policy-contact-btn.secondary:hover {
+  background: var(--forest-green);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Cart Consent text for Razorpay Compliance */
+.cart-compliance-consent {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-size: 0.76rem;
+  color: #716960;
+  text-align: center;
+  line-height: 1.45;
+}
+
+.cart-compliance-consent a {
+  color: var(--terracotta);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.cart-compliance-consent a:hover {
+  color: #a34e2c;
+}

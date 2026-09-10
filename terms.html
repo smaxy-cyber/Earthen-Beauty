@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Earthen Beauty by Nupur - Handcrafted candles, diffusers, mists and more. Made with love, lit with warmth.">
-  <title>Earthen Beauty by Nupur | Handcrafted Candles</title>
+  <meta name="description" content="Terms and Conditions for Earthen Beauty by Nupur - Handcrafted candles, home fragrances, and decor in India.">
+  <title>Terms & Conditions | Earthen Beauty by Nupur</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
-  <!-- Cart Overlay -->
+  <!-- Cart Overlay & Panel -->
   <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
-
-  <!-- Cart Side Panel -->
   <div class="cart-panel" id="cart-panel">
     <div class="cart-header">
       <h3>🛒 Your Cart</h3>
@@ -23,7 +21,6 @@
       <div class="empty-cart-msg" id="empty-cart-msg">
         <div class="empty-icon">🕯️</div>
         <p>Your cart is empty</p>
-        <p style="font-size: 0.85rem; color: #aaa;">Add some warmth to your cart!</p>
       </div>
       <div id="cart-items"></div>
     </div>
@@ -52,22 +49,8 @@
     </div>
   </div>
 
-  <!-- Search Modal Overlay -->
-  <div class="search-overlay" id="search-overlay" onclick="closeSearchModal(event)">
-    <div class="search-modal-content" onclick="event.stopPropagation()">
-      <div class="search-modal-header">
-        <span style="font-size: 1.2rem; color: var(--terracotta);">🔍</span>
-        <input type="text" id="global-search-input" placeholder="Type to search candles, diffusers, mists..." oninput="handleGlobalSearch(this.value)">
-        <button class="search-modal-close" onclick="closeSearchModal()" title="Close">✕</button>
-      </div>
-      <div class="search-modal-results" id="search-modal-results">
-        <!-- Live search results rendered by JS -->
-      </div>
-    </div>
-  </div>
-
   <!-- Header -->
-  <header class="header" id="header">
+  <header class="header scrolled" id="header">
     <div class="top-announcement-bar">
       <span>🌿 100% Pure Soy Wax & Botanical Fragrances</span>
       <span class="bar-dot">•</span>
@@ -76,17 +59,14 @@
       <span>🕯️ Hand-Poured in Small Batches by Nupur</span>
     </div>
     <div class="container">
-
-      <!-- Brand Logo (Left) -->
       <a href="index.html" class="logo">
         <h1>Earthen Beauty</h1>
         <span>by Nupur</span>
       </a>
 
-      <!-- Floating Pill Navbar (Reference Layout - Clean Text Links) -->
       <nav class="nav-center">
         <ul class="nav-links nav-pill-capsule" id="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
           <li><a href="customizable.html">Customize</a></li>
           <li><a href="about.html">About</a></li>
@@ -94,7 +74,6 @@
         </ul>
       </nav>
 
-      <!-- Right Header Actions (Cart(0), Wishlist, Account) matching reference -->
       <div class="header-actions">
         <button class="cart-btn" onclick="toggleCart()" title="View Cart">
           <svg class="cart-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -111,80 +90,139 @@
           <span></span>
         </button>
       </div>
-
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-bg" style="background-image: url('images/hero/hero-bg.png');"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <h2>Handcrafted with Love</h2>
-      <h1>Earthen Beauty</h1>
-      <p>Discover our collection of handmade candles, diffusers, and home fragrances — each piece crafted with care by Nupur.</p>
-
-      <!-- Hero Search Bar (Reference Neumorphic/Frosted Pill Capsule) -->
-      <form class="hero-search-wrap" onsubmit="handleHeroSearch(event)">
-        <input type="text" id="hero-search-input" placeholder="SEARCH CANDLES, DIFFUSERS, SCENTS..." autocomplete="off" spellcheck="false">
-        <button type="submit" class="hero-search-submit-btn" aria-label="Search" title="Search">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-      </form>
-
-      <a href="shop.html" class="hero-btn">Explore Collection</a>
-    </div>
-    <div class="scroll-indicator">
-      <span></span>
+  <!-- Policy Hero -->
+  <section class="policy-hero">
+    <span class="section-eyebrow">⚖️ Legal Agreement</span>
+    <h1>Terms & Conditions</h1>
+    <p>Please read these terms and conditions carefully before browsing or placing an order with Earthen Beauty by Nupur.</p>
+    <div class="policy-badge-wrap">
+      <span class="policy-badge">Effective: September 2026</span>
+      <span class="policy-badge green">Governing Law: Republic of India</span>
     </div>
   </section>
 
-  <!-- Categories Section -->
-  <section class="categories-section" id="categories">
-    <div class="container">
-      <div class="section-title reveal">
-        <span class="section-eyebrow">🌿 Artisanal Botanical Collections</span>
-        <h2>Our Collections</h2>
-        <p>Explore our handcrafted categories made with pure soy wax & organic scents</p>
-      </div>
-      <div class="categories-grid" id="categories-grid">
-        <!-- Categories will be loaded by JS -->
-      </div>
-    </div>
-  </section>
+  <!-- Policy Content -->
+  <section class="policy-section">
+    <div class="policy-container">
+      <div class="policy-card reveal">
 
-  <!-- Featured Products -->
-  <section class="featured-section" id="featured">
-    <div class="container">
-      <div class="section-title reveal">
-        <span class="section-eyebrow">🕯️ Curated Studio Highlights</span>
-        <h2>Featured Products</h2>
-        <p>Our most loved creations, lit with warmth and artisan care</p>
-      </div>
-      <div class="products-grid" id="featured-products">
-        <!-- Products will be loaded by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- About Teaser (Pure Minimalist Story & Read Our Story Button, No Image) -->
-  <section class="about-teaser">
-    <div class="container">
-      <div class="about-teaser-single reveal">
-        <span class="section-eyebrow">✨ The Studio Philosophy</span>
-        <h3 class="about-script-subtitle">Our Story</h3>
-        <h2>Handcrafted with Love, Pure by Nature</h2>
-        <div class="about-teaser-text-wrap">
-          <p>Earthen Beauty began with a heartfelt belief: that everyday spaces deserve to be sacred sanctuaries of warmth, calm, and pure botanical fragrance. We hand-pour every candle in mindful micro-batches using 100% natural, biodegradable soy wax, lead-free cotton wicks, and therapeutic-grade essential oils — completely free from toxic paraffin, phthalates, parabens, and chemical soot.</p>
-          <p>Every piece is shaped by hand with personal care, celebrating earthen authenticity and sustainable living.</p>
+        <div class="policy-intro-box">
+          Welcome to <strong>Earthen Beauty by Nupur</strong>. By accessing, browsing, registering, or purchasing products through this website, you acknowledge that you have read, understood, and agree to be legally bound by these Terms and Conditions, our <a href="privacy.html" style="color: var(--terracotta); text-decoration: underline;">Privacy Policy</a>, and our <a href="refund-policy.html" style="color: var(--terracotta); text-decoration: underline;">Refund & Cancellation Policy</a>. If you do not agree with any part of these terms, please do not use our website.
         </div>
-        <div class="about-teaser-actions">
-          <a href="about.html" class="about-btn">Read Our Story <span>➔</span></a>
+
+        <!-- 1. Lawful & Authorized Use Only -->
+        <div class="policy-block">
+          <h2><span class="policy-num">1</span> Lawful & Authorized Use Only</h2>
+          <p>This website is provided solely for legitimate, personal, and lawful consumer browsing, product inquiry, and purchasing of artisanal goods. By using our website, you expressly warrant and agree that:</p>
+          <ul>
+            <li>You will use the platform strictly in accordance with all applicable local, state, national, and international laws and regulations of the Republic of India.</li>
+            <li>You will provide accurate, truthful, current, and complete personal and shipping information during checkout and communications.</li>
+            <li>You will not use this platform to conduct any fraudulent transactions, unauthorized purchases, or unlawful financial activities.</li>
+            <li>You are at least 18 years of age or accessing under the active supervision of a parent or legal guardian who agrees to these terms.</li>
+          </ul>
         </div>
+
+        <!-- 2. Strict Prohibition of Third-Party Tools, Scraping & Tampering -->
+        <div class="policy-block">
+          <h2><span class="policy-num">2</span> Prohibition of Third-Party Scrapers & Technical Tampering</h2>
+          <p>We maintain strict security safeguards to protect our artisanal catalog, customer data, and server integrity. You are strictly prohibited from:</p>
+          <ul>
+            <li>Using any automated system, robot, crawler, spider, scraper, data-mining tool, or extraction utility to access, copy, mirror, or monitor any portion of this website or its product media.</li>
+            <li>Employing unauthorized third-party extensions, automated form fillers, or scripts designed to manipulate catalog pricing, stock values, or order parameters.</li>
+            <li>Attempting to probe, scan, or test the vulnerability of our systems, network, SQLite database, or backend API without explicit written authorization.</li>
+            <li>Introducing trojans, viruses, worms, logic bombs, or any malicious material, or launching denial-of-service (DoS/DDoS) attacks against our infrastructure.</li>
+            <li>Framing, deep-linking, or displaying any content from this site on third-party domains without prior written consent from Nupur Sinha Jana.</li>
+          </ul>
+          <div class="policy-callout warning">
+            <strong>Legal Notice:</strong>
+            <p>Any unauthorized technical interference, data theft, scraping, or breach of security will be reported to cybercrime law enforcement authorities and prosecuted under the Information Technology Act, 2000 and relevant Indian Penal Code provisions.</p>
+          </div>
+        </div>
+
+        <!-- 3. Intellectual Property Rights -->
+        <div class="policy-block">
+          <h2><span class="policy-num">3</span> Intellectual Property Rights</h2>
+          <p>All creative, visual, and textual assets displayed on this website are the sole exclusive intellectual property of <strong>Nupur Sinha Jana</strong> and <strong>Earthen Beauty</strong>, protected by Indian copyright, design, and trademark laws:</p>
+          <ul>
+            <li>All product photography, sculptured candle concepts (including flower arrangements, teddy candles, and custom dessert designs), fragrance formulations, descriptions, graphics, logos, slogans, and website code are owned exclusively by Earthen Beauty.</li>
+            <li>No part of this website, product imagery, or marketing copy may be copied, reproduced, distributed, republished, downloaded, displayed, posted, or transmitted in any form or by any means without our prior written permission.</li>
+          </ul>
+        </div>
+
+        <!-- 4. Handcrafted Nature & Natural Variations -->
+        <div class="policy-block">
+          <h2><span class="policy-num">4</span> Handcrafted Artisanal Authenticity & Natural Variations</h2>
+          <p>Every single candle, wax melt, and concrete vessel created by Earthen Beauty is individually hand-poured in micro-batches using 100% natural soy wax, botanical essences, and lead-free cotton wicks:</p>
+          <ul>
+            <li>Because our products are genuinely handcrafted by human hands and never mass-produced on industrial machinery, minor variations in color shade, botanical topping arrangements, marble swirls, and surface texture are natural hallmarks of authentic artisan craft.</li>
+            <li>Natural soy wax is known to exhibit subtle "frosting" (white crystalline film) or slight shrinkage when exposed to ambient temperature changes. These are chemical testaments to pure, unadulterated vegetable wax (zero paraffin) and do not impact fragrance throw or burning quality in any way.</li>
+          </ul>
+        </div>
+
+        <!-- 5. Pricing & Product Descriptions -->
+        <div class="policy-block">
+          <h2><span class="policy-num">5</span> Product Pricing & Availability</h2>
+          <ul>
+            <li>All prices displayed on the website are listed in Indian Rupees (INR ₹) inclusive of applicable taxes. Delivery and shipping fees are calculated transparently and shown during checkout.</li>
+            <li>We strive for absolute accuracy in pricing and product details; however, inadvertent technical errors may occur. Earthen Beauty reserves the right to correct any typographical or pricing error and cancel orders placed under inaccurate pricing prior to dispatch.</li>
+            <li>All handcrafted items are subject to availability. If a raw material or specialty container is temporarily out of stock, we will notify you promptly to offer an equivalent alternative or refund.</li>
+          </ul>
+        </div>
+
+        <!-- 6. Payment Security via Razorpay -->
+        <div class="policy-block">
+          <h2><span class="policy-num">6</span> Secure Online Payments (Razorpay)</h2>
+          <p>Online transactions on Earthen Beauty are securely facilitated through <strong>Razorpay Software Private Limited</strong>, an RBI-authorized, PCI-DSS Level 1 compliant payment gateway:</p>
+          <ul>
+            <li>We support UPI (Google Pay, PhonePe, Paytm, BHIM), all major Credit Cards, Debit Cards, and Netbanking.</li>
+            <li><strong>Zero Financial Data Storage:</strong> Earthen Beauty never captures, views, or stores your card details, CVVs, netbanking credentials, or UPI PINs. All sensitive payment details are processed directly on Razorpay's bank-grade 256-bit encrypted servers.</li>
+            <li>Orders are confirmed and scheduled for artisanal pouring only after payment receipt is authenticated and validated by Razorpay.</li>
+          </ul>
+        </div>
+
+        <!-- 7. Candle Care & Safety Rituals -->
+        <div class="policy-block">
+          <h2><span class="policy-num">7</span> Candle Safety & Burn Disclaimers</h2>
+          <p>Candles involve open flame and must be treated with care. By purchasing and lighting our candles, you agree to adhere strictly to recommended candle safety rituals:</p>
+          <ul>
+            <li><strong>Never leave a burning candle unattended.</strong> Always extinguish flames before leaving a room or going to sleep.</li>
+            <li>Always burn candles on a stable, heat-resistant surface away from curtains, drafts, fans, paper, flammable materials, children, and pets.</li>
+            <li>Trim the cotton wick to 1/4 inch (6mm) before every single burn to prevent excess soot and uneven pools.</li>
+            <li>Do not burn pillar or sculptured candles without a proper protective tray or plate underneath to catch melted wax.</li>
+            <li>Do not burn a candle for more than 3 to 4 hours in a single session.</li>
+          </ul>
+          <div class="policy-callout">
+            <p><strong>Disclaimer:</strong> Earthen Beauty by Nupur is not liable for any direct or indirect loss, injury, or property damage caused by the misuse of candles, failure to observe fire safety instructions, or leaving flames unattended.</p>
+          </div>
+        </div>
+
+        <!-- 8. Limitation of Liability -->
+        <div class="policy-block">
+          <h2><span class="policy-num">8</span> Limitation of Liability</h2>
+          <p>To the maximum extent permitted under applicable laws of India, Earthen Beauty, its founder, artisans, and affiliates shall not be liable for any indirect, incidental, punitive, special, or consequential damages arising from the use of, or inability to use, this website or products purchased herein.</p>
+        </div>
+
+        <!-- 9. Governing Law & Dispute Jurisdiction -->
+        <div class="policy-block">
+          <h2><span class="policy-num">9</span> Governing Law & Jurisdiction</h2>
+          <p>These Terms & Conditions and all consumer transactions shall be governed by and construed in accordance with the substantive laws of the <strong>Republic of India</strong>. Any dispute, claim, or controversy arising under or relating to these terms shall be subject to the exclusive jurisdiction of the competent civil courts in <strong>West Bengal, India</strong>.</p>
+        </div>
+
+        <!-- Support Contact Box -->
+        <div class="policy-contact-box">
+          <div class="policy-contact-info">
+            <h4>Have questions about our Terms?</h4>
+            <p>Our studio team is available to assist you with any questions or clarifications.</p>
+          </div>
+          <div class="policy-contact-actions">
+            <a href="contact.html" class="policy-contact-btn primary">Contact Studio</a>
+            <a href="https://wa.me/918296891802" target="_blank" class="policy-contact-btn secondary">WhatsApp Support</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -243,7 +281,6 @@
       <div class="footer-divider"></div>
 
       <div class="footer-grid">
-
         <div class="footer-brand">
           <div class="logo">
             <h1>Earthen Beauty</h1>
@@ -289,7 +326,6 @@
             </a>
           </div>
         </div>
-
       </div>
 
       <div class="footer-bottom">
@@ -310,99 +346,8 @@
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
   <script src="js/motion-effects.js"></script>
-
   <script>
-    // Load categories on home page
-    function loadCategories() {
-      var grid = document.getElementById("categories-grid");
-      if (!grid) return;
-
-      categories.forEach(function(cat) {
-        var card = document.createElement("a");
-        if (cat.id === "bulk-orders") {
-          card.href = "customizable.html#bulk-orders";
-        } else if (cat.id === "customizable") {
-          card.href = "customizable.html";
-        } else {
-          card.href = "shop.html?cat=" + cat.id;
-        }
-        card.className = "category-card";
-
-        var subtitle = cat.id === "bulk-orders" ? "Weddings & Events" : (cat.subcategories.length > 0 ? cat.subcategories.length + ' types' : 'View collection');
-
-        card.innerHTML =
-          '<div class="category-card-bg" style="background-image: url(\'' + cat.image + '\');"></div>' +
-          '<div class="category-card-overlay">' +
-            '<h3>' + cat.name + '</h3>' +
-            '<p>' + subtitle + '</p>' +
-          '</div>';
-
-        grid.appendChild(card);
-      });
-
-      if (window.animateProductGrid) {
-        window.animateProductGrid(grid);
-      }
-    }
-
-    // Load featured products (curated 1-2 from each category)
-    function loadFeatured() {
-      var grid = document.getElementById("featured-products");
-      if (!grid) return;
-      grid.innerHTML = "";
-
-      var featuredIds = [6, 14, 21, 46, 52, 54, 57, 63, 67, 72, 75]; // Handcrafted selection across all categories
-      var featured = products.filter(function(p) { return featuredIds.indexOf(p.id) !== -1; });
-      if (featured.length === 0) {
-        featured = products.slice(0, 8);
-      }
-
-      featured.forEach(function(product) {
-        var card = document.createElement("div");
-        card.className = "product-card";
-        card.style.cursor = "pointer";
-        card.onclick = function(e) {
-          if (e.target.classList.contains("add-to-cart-btn")) return;
-          window.location.href = "product.html?id=" + product.id;
-        };
-
-        // Find category name
-        var catObj = categories.find(function(c) { return c.id === product.category; });
-        var catName = catObj ? catObj.name : product.category;
-
-        card.innerHTML =
-          '<div class="product-image">' +
-            '<img src="' + product.image + '" alt="' + product.name + '">' +
-            '<span class="product-tag">' + catName + '</span>' +
-          '</div>' +
-          '<div class="product-info">' +
-            '<h3>' + product.name + '</h3>' +
-            '<p class="product-category">' + product.description + '</p>' +
-            '<div class="product-bottom">' +
-              '<span class="product-price">₹' + product.price + '</span>' +
-              '<button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(' + product.id + ')">Add to Cart</button>' +
-            '</div>' +
-          '</div>';
-
-        grid.appendChild(card);
-      });
-
-      if (window.animateProductGrid) {
-        window.animateProductGrid(grid);
-      }
-    }
-
-    // Initialize home page
-    document.addEventListener("DOMContentLoaded", function() {
-      loadCategories();
-      loadFeatured();
-    });
-
-    // Automatically re-render if live backend products sync or change
-    window.addEventListener("earthen:products-updated", function() {
-      loadFeatured();
-    });
+    document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
