@@ -7,14 +7,13 @@
 
 require_once __DIR__ . '/helpers.php';
 
-// Helper to ensure tables exist in DB
+// Helper to ensure tables exist in DB (Pure MySQL)
 function ensureInquiryTables(PDO $db) {
     static $checked = false;
     if ($checked) return;
 
-    $isSqlite = ($db->getAttribute(PDO::ATTR_DRIVER_NAME) === 'sqlite');
-
-    if ($isSqlite) {
+    $driver = $db->getAttribute(PDO::ATTR_DRIVER_NAME);
+    if ($driver === 'sqlite') {
         $db->exec("
             CREATE TABLE IF NOT EXISTS inquiries (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -76,6 +75,15 @@ function ensureInquiryTables(PDO $db) {
                 `required_date` VARCHAR(100) DEFAULT '',
                 `notes` TEXT DEFAULT NULL,
                 `status` VARCHAR(50) DEFAULT 'new',
+                `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+            CREATE TABLE IF NOT EXISTS `newsletter_subscribers` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `email` VARCHAR(191) NOT NULL UNIQUE,
+                `club_tier` VARCHAR(100) DEFAULT 'Scent Club Member',
+                `discount_code` VARCHAR(50) DEFAULT 'SCENTCLUB10',
+                `status` VARCHAR(50) DEFAULT 'active',
                 `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
         ");
@@ -210,13 +218,11 @@ function handleNewsletterSubscribe(array $input) {
     $db = getDb();
     ensureInquiryTables($db);
 
-    $isSqlite = ($db->getAttribute(PDO::ATTR_DRIVER_NAME) === 'sqlite');
-
-    if ($isSqlite) {
-        $stmt = $db->prepare("INSERT OR IGNORE INTO newsletter_subscribers (email, club_tier, discount_code, status) VALUES (?, ?, ?, 'active')");
-    } else {
-        $stmt = $db->prepare("INSERT INTO `newsletter_subscribers` (`email`, `club_tier`, `discount_code`, `status`) VALUES (?, ?, ?, 'active') ON DUPLICATE KEY UPDATE `status` = 'active'");
-    }
+    $stmt = $db->prepare("
+        INSERT INTO `newsletter_subscribers` (`email`, `club_tier`, `discount_code`, `status`)
+        VALUES (?, ?, ?, 'active')
+        ON DUPLICATE KEY UPDATE `status` = 'active'
+    ");
 
     $stmt->execute([$email, $clubTier, $discountCode]);
 

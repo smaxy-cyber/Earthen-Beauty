@@ -159,3 +159,54 @@ INSERT INTO `products` (`id`, `name`, `category`, `subcategory`, `price`, `image
 (75, 'Bubble Tray', 'concrete-decor', 'concrete-decor', 180.0, 'images/concrete-decor/Bubble Tray - 180.jpeg', 'Handcrafted round bubble concrete decor tray for candles, jewelry, and vanity.', 1),
 (76, 'Shankha Concrete Decor', 'concrete-decor', 'concrete-decor', 299.0, 'images/concrete-decor/Shankha - 299.jpeg', 'Exquisite conch shell (shankha) concrete sculpture and decor piece.', 1),
 (77, 'Wavy Concrete Tray', 'concrete-decor', 'concrete-decor', 199.0, 'images/concrete-decor/Tray - 199.jpeg', 'Aesthetic wavy cloud edge concrete tray for candles and vanity accessories.', 1);
+
+-- --------------------------------------------------------
+-- Table: inquiries (Customer Contact Messages)
+-- --------------------------------------------------------
+DROP TABLE IF EXISTS `inquiries`;
+CREATE TABLE `inquiries` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(150) NOT NULL,
+  `email` VARCHAR(191) NOT NULL,
+  `phone` VARCHAR(50) DEFAULT '',
+  `subject` VARCHAR(150) DEFAULT 'General Inquiry',
+  `message` TEXT NOT NULL,
+  `status` VARCHAR(50) DEFAULT 'new',
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  INDEX `idx_inquiries_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+-- Table: custom_quotes (Bespoke Candle & Bulk Inquiries)
+-- --------------------------------------------------------
+DROP TABLE IF EXISTS `custom_quotes`;
+CREATE TABLE `custom_quotes` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(150) NOT NULL,
+  `email` VARCHAR(191) DEFAULT '',
+  `phone` VARCHAR(50) DEFAULT '',
+  `product_interest` VARCHAR(255) DEFAULT 'Bespoke Bulk Order',
+  `quantity` INT DEFAULT 50,
+  `occasion` VARCHAR(150) DEFAULT 'General Event',
+  `fragrance_theme` VARCHAR(150) DEFAULT '',
+  `custom_branding` VARCHAR(50) DEFAULT 'Yes',
+  `required_date` VARCHAR(100) DEFAULT '',
+  `notes` TEXT DEFAULT NULL,
+  `status` VARCHAR(50) DEFAULT 'new',
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  INDEX `idx_quotes_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+-- Table: newsletter_subscribers (The Scent Club)
+-- --------------------------------------------------------
+DROP TABLE IF EXISTS `newsletter_subscribers`;
+CREATE TABLE `newsletter_subscribers` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `email` VARCHAR(191) NOT NULL UNIQUE,
+  `club_tier` VARCHAR(100) DEFAULT 'Scent Club Member',
+  `discount_code` VARCHAR(50) DEFAULT 'SCENTCLUB10',
+  `status` VARCHAR(50) DEFAULT 'active',
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

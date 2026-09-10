@@ -11,7 +11,6 @@ function handleGetDashboardStats() {
     requireAdminAuth();
 
     $db = getDb();
-    $isSqlite = ($db->getAttribute(PDO::ATTR_DRIVER_NAME) === 'sqlite');
 
     // Total Revenue (paid orders)
     $revStmt = $db->query("SELECT COALESCE(SUM(total_amount), 0) FROM orders WHERE payment_status = 'paid'");
@@ -71,7 +70,8 @@ function handleGetDashboardStats() {
     }
 
     // Query actual monthly orders
-    $monthQuery = $isSqlite
+    $driver = $db->getAttribute(PDO::ATTR_DRIVER_NAME);
+    $monthQuery = ($driver === 'sqlite')
         ? "SELECT strftime('%m', created_at) as m, COUNT(*) as c, COALESCE(SUM(total_amount), 0) as rev FROM orders GROUP BY m"
         : "SELECT DATE_FORMAT(created_at, '%m') as m, COUNT(*) as c, COALESCE(SUM(total_amount), 0) as rev FROM orders GROUP BY m";
 

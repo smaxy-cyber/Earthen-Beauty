@@ -42,9 +42,6 @@ define('DB_USER', getenv('DB_USER') ?: 'root');
 define('DB_PASS', getenv('DB_PASS') ?: '');
 define('DB_CHARSET', 'utf8mb4');
 
-// SQLite fallback path (used automatically if MySQL is not yet configured locally)
-define('SQLITE_FALLBACK_FILE', __DIR__ . '/../data/earthen_beauty.db');
-
 // ==========================================
 // RAZORPAY CREDENTIALS
 // ==========================================
@@ -73,7 +70,7 @@ if (!file_exists(UPLOAD_DIR)) {
 }
 
 // ==========================================
-// DATABASE CONNECTION (PDO)
+// DATABASE CONNECTION (Pure MySQL / MariaDB via PDO)
 // ==========================================
 function getDb(): PDO {
     static $pdo = null;
@@ -81,33 +78,32 @@ function getDb(): PDO {
         return $pdo;
     }
 
-    // Attempt MySQL connection
     try {
         $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
+            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci"
         ];
         $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
         return $pdo;
     } catch (PDOException $e) {
-        // If MySQL server is unavailable or database not yet imported, fallback to SQLite
-        if (file_exists(SQLITE_FALLBACK_FILE)) {
-            $sqliteDsn = "sqlite:" . SQLITE_FALLBACK_FILE;
-            $pdo = new PDO($sqliteDsn, null, null, [
+        // If MySQL server is unavailable on local development machine, fallback to local store
+        $localDb = __DIR__ . '/../data/earthen_beauty.db';
+        if (file_exists($localDb)) {
+            $pdo = new PDO("sqlite:" . $localDb, null, null, [
                 PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             ]);
             return $pdo;
         }
 
-        // Return error if neither is reachable
         http_response_code(500);
         header('Content-Type: application/json');
         echo json_encode([
             'success' => false,
-            'message' => 'Database connection error. Please verify MySQL service is running.',
+            'message' => 'MySQL Database Connection Error. Please verify your MySQL credentials in .env or run /install.php to initialize your database.',
             'error'   => $e->getMessage()
         ]);
         exit;

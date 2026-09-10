@@ -9,6 +9,11 @@
     # Route all /api/* requests to api/index.php
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^api/(.*)$ api/index.php [QSA,L]
+
+    # Clean URLs: map /shop to shop.html if exists
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    RewriteRule ^(.*)$ $1.html [L]
 </IfModule>
 
 # Prevent directory browsing

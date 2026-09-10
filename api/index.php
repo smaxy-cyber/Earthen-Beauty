@@ -26,6 +26,13 @@ $uri = $_SERVER['REQUEST_URI'];
 $parsedUrl = parse_url($uri);
 $path = trim($parsedUrl['path'], '/');
 
+// Support query parameter routing (e.g. from Nginx /index.php?route=...)
+if (!empty($_GET['route'])) {
+    $path = trim($_GET['route'], '/');
+} elseif (!empty($_GET['path'])) {
+    $path = trim($_GET['path'], '/');
+}
+
 // Strip any subfolder prefix if hosted in subfolder (e.g., earthen-beauty/api/...)
 $pos = strpos($path, 'api');
 if ($pos !== false) {
