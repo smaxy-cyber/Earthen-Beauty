@@ -1465,6 +1465,7 @@ ul {
 .footer-bottom {
   border-top: 1px solid rgba(250, 246, 238, 0.12);
   padding-top: 24px;
+  padding-right: 84px; /* Clearance so floating WhatsApp button never collides with legal links */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2303,6 +2304,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 10px;
+  pointer-events: none; /* Prevents wrapper from intercepting hover or blocking links */
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -2319,14 +2321,18 @@ ul {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   pointer-events: none;
   opacity: 0;
+  visibility: hidden;
   transform: translateX(10px);
-  transition: all 0.25s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   white-space: nowrap;
   border: 1px solid rgba(245, 239, 230, 0.15);
 }
 
-.floating-whatsapp-wrap:hover .floating-whatsapp-tooltip {
+/* Tooltip appears ONLY when cursor touches the round WhatsApp button itself */
+.floating-whatsapp-wrap:has(.floating-whatsapp-btn:hover) .floating-whatsapp-tooltip,
+.floating-whatsapp-wrap.show-tooltip .floating-whatsapp-tooltip {
   opacity: 1;
+  visibility: visible;
   transform: translateX(0);
 }
 
@@ -2343,6 +2349,7 @@ ul {
   box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  pointer-events: auto; /* Only the circle button catches mouse interactions */
 }
 
 .floating-whatsapp-btn svg {

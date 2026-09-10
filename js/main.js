@@ -197,8 +197,8 @@ function initFloatingWhatsApp() {
   wrap.id = "floating-whatsapp";
   wrap.className = "floating-whatsapp-wrap";
   wrap.innerHTML =
-    '<div class="floating-whatsapp-tooltip">Chat with Nupur 🕯️</div>' +
-    '<a href="https://wa.me/918296891802?text=Hello%20Nupur!%20I%20have%20an%20inquiry%20regarding%20Earthen%20Beauty%20products." target="_blank" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">' +
+    '<div class="floating-whatsapp-tooltip" id="floating-whatsapp-tooltip">Chat with Nupur 🕯️</div>' +
+    '<a href="https://wa.me/918296891802?text=Hello%20Nupur!%20I%20have%20an%20inquiry%20regarding%20Earthen%20Beauty%20products." target="_blank" class="floating-whatsapp-btn" id="floating-whatsapp-btn" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">' +
       '<span class="floating-whatsapp-online-dot"></span>' +
       '<svg viewBox="0 0 24 24">' +
         '<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.53 1.777.82 2.796.82 3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.808 0-3.5-.483-4.962-1.326l-5.038 1.326 1.35-4.921c-.958-1.526-1.52-3.328-1.52-5.079 0-5.514 4.486-10 10-10s10 4.486 10 10z"/>' +
@@ -206,6 +206,16 @@ function initFloatingWhatsApp() {
     '</a>';
 
   document.body.appendChild(wrap);
+
+  var btn = wrap.querySelector(".floating-whatsapp-btn");
+  if (btn) {
+    btn.addEventListener("mouseenter", function() {
+      wrap.classList.add("show-tooltip");
+    });
+    btn.addEventListener("mouseleave", function() {
+      wrap.classList.remove("show-tooltip");
+    });
+  }
 }
 
 // Close mobile menu if clicked outside
